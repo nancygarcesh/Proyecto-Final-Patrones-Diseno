@@ -93,12 +93,16 @@
     <Compile Include="Mediator\Recepcion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\EstadoDisponible.cs" />
+    <Compile Include="State\EstadoNoDisponible.cs" />
+    <Compile Include="State\EstadoReservado.cs" />
+    <Compile Include="State\EstadoSpa.cs" />
+    <Compile Include="State\SistemaSpa.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="State\" />
     <Folder Include="Visitor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

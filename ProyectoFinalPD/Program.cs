@@ -3,6 +3,7 @@ using ProyectoFinalPD.Command;
 using ProyectoFinalPD.Composite;
 using ProyectoFinalPD.Decorator;
 using ProyectoFinalPD.Mediator;
+using ProyectoFinalPD.State;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,9 @@ namespace ProyectoFinalPD
             Console.WriteLine();
 
             //-------------------------------------------COMPOSITE---------------------------------------------------
+            Console.WriteLine("¡Sistema de reservas de habitaciones/paquetes!");
+            Console.WriteLine();
+
             Cliente cliente = new Cliente();
 
                 Console.WriteLine("Seleccione una opción:");
@@ -67,6 +71,9 @@ namespace ProyectoFinalPD
             Console.WriteLine();
 
             //------------------------------------------BUILDER------------------------------------------------------------
+
+            Console.WriteLine("¡Sistema de reservas de tipo de habitaciones!");
+            Console.WriteLine();
 
             Director director = new Director();
             IConstructorHabitacion constructor = null;
@@ -120,6 +127,9 @@ namespace ProyectoFinalPD
             Console.WriteLine();
 
             //---------------------------------------------DECORATOR----------------------------------------------------
+
+            Console.WriteLine("¡Sistema de reservas de servicios adicionales!");
+            Console.WriteLine();
 
             // Crear un paquete base
             PaqueteHabitacion paquete = new PaqueteBase();
@@ -188,6 +198,9 @@ namespace ProyectoFinalPD
 
             //---------------------------------------COMMAND--------------------------------------------------------------------
 
+            Console.WriteLine("¡Aplicacion de control de habitación!");
+            Console.WriteLine();
+
             HabitacionInteligente habitacion1 = new HabitacionInteligente();
             ControladorApp controlador = new ControladorApp();
 
@@ -233,6 +246,9 @@ namespace ProyectoFinalPD
             Console.WriteLine();
 
             //------------------------------------------MEDIATOR------------------------------------------------------------
+
+            Console.WriteLine("¡Sistema de reservas de Pedidos!");
+            Console.WriteLine();
 
             // Crear instancias de los colegas
             var mantenimiento = new Mantenimiento();
@@ -300,6 +316,56 @@ namespace ProyectoFinalPD
                 }
 
             //------------------------------------------------------------------------------------------------------------
+
+            Console.WriteLine();
+
+            //----------------------------------------------------STATE-------------------------------------------------------
+
+
+            SistemaSpa spa = new SistemaSpa();
+
+            Console.WriteLine("¡Sistema de reservas de Spa!");
+            Console.WriteLine();
+
+            Console.WriteLine("\n¿Qué desea hacer?");
+                Console.WriteLine("1. Reservar Spa");
+                Console.WriteLine("2. Cancelar reserva de Spa");
+                Console.WriteLine("3. Salir");
+
+                Console.Write("Ingrese su elección: ");
+                string opcion4 = Console.ReadLine();
+
+                switch (opcion4)
+                {
+                    case "1":
+                        Console.Write("Ingrese el número de habitación: ");
+                        string habitacion = Console.ReadLine();
+
+                        Console.Write("Ingrese la fecha y hora de la reserva (YYYY-MM-DD HH:MM): ");
+                        string fechaHora = Console.ReadLine();
+                        spa.Reservar(habitacion, fechaHora);
+                        break;
+                    case "2":
+                        spa.CancelarReserva();
+                        break;
+                    case "3":
+                        Console.WriteLine("¡Gracias por utilizar nuestro sistema de reservas de Spa!");
+                        return;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, ingrese una opción válida.");
+                        break;
+                }
+
+
+            //------------------------------------------------------------------------------------------------------------
+
+            Console.WriteLine();
+
+            //----------------------------------------------------VISITOR-------------------------------------------------------
+
+           
+
+
 
             Console.WriteLine();
             Console.WriteLine("Para finalizar con el sistema de reservas presione ENTER\nGracias por usar el sistema");
