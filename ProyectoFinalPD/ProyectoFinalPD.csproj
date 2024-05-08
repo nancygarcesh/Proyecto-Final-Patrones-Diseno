@@ -65,10 +65,21 @@
     <Compile Include="Builder\ServicioBarInteligente.cs" />
     <Compile Include="Builder\ServicioBarLujo.cs" />
     <Compile Include="Builder\ServicioCena.cs" />
+    <Compile Include="Command\Comando.cs" />
+    <Compile Include="Command\ComandoMusica.cs" />
+    <Compile Include="Command\HabitacionInteligente.cs" />
     <Compile Include="Composite\Cliente.cs" />
     <Compile Include="Composite\HabitacionIndividual.cs" />
     <Compile Include="Composite\IPaqueteHabitacion.cs" />
     <Compile Include="Composite\PaqueteCompuesto.cs" />
+    <Compile Include="Decorator\CineDecorator.cs" />
+    <Compile Include="Decorator\GimnasioDecorator.cs" />
+    <Compile Include="Decorator\InternetDecorator.cs" />
+    <Compile Include="Decorator\KaraokeDecorator.cs" />
+    <Compile Include="Decorator\PaqueteBase.cs" />
+    <Compile Include="Decorator\PaqueteHabitacion.cs" />
+    <Compile Include="Decorator\ServicioDecorator.cs" />
+    <Compile Include="Decorator\SpaDecorator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,8 +87,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Command\" />
-    <Folder Include="Decorator\" />
     <Folder Include="Mediator\" />
     <Folder Include="State\" />
     <Folder Include="Visitor\" />

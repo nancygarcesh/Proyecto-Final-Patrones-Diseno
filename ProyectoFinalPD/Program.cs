@@ -1,5 +1,6 @@
 ﻿using ProyectoFinalPD.Builder;
 using ProyectoFinalPD.Composite;
+using ProyectoFinalPD.Decorator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,7 @@ namespace ProyectoFinalPD
 
             //----------------------------------------------------------------------------------------------------------------
 
+            Console.WriteLine();
 
             //------------------------------------------BUILDER------------------------------------------------------------
 
@@ -109,6 +111,78 @@ namespace ProyectoFinalPD
             }
 
             //---------------------------------------------------------------------------------------------------------------
+
+            Console.WriteLine();
+
+            //---------------------------------------------DECORATOR----------------------------------------------------
+
+            // Crear un paquete base
+            PaqueteHabitacion paquete = new PaqueteBase();
+
+            // Lista para mantener los servicios adicionales seleccionados
+            List<PaqueteHabitacion> serviciosAdicionales = new List<PaqueteHabitacion>();
+
+            Console.WriteLine("Seleccione los servicios adicionales que desea agregar al paquete:");
+            Console.WriteLine("1. Internet (+10Bs)");
+            Console.WriteLine("2. Gimnasio (+20Bs)");
+            Console.WriteLine("3. Spa (+20Bs)");
+            Console.WriteLine("4. Karaoke (+30Bs)");
+            Console.WriteLine("5. Cine (+30Bs)");
+            Console.WriteLine("Presione Enter para finalizar la selección.");
+
+            // Leer la selección del usuario y agregar servicios adicionales al paquete
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(input))
+                    break;
+
+                switch (input)
+                {
+                    case "1":
+                        if (!serviciosAdicionales.Any(s => s is InternetDecorator))
+                            serviciosAdicionales.Add(new InternetDecorator(paquete));
+                        break;
+                    case "2":
+                        if (!serviciosAdicionales.Any(s => s is GimnasioDecorator))
+                            serviciosAdicionales.Add(new GimnasioDecorator(paquete));
+                        break;
+                    case "3":
+                        if (!serviciosAdicionales.Any(s => s is SpaDecorator))
+                            serviciosAdicionales.Add(new SpaDecorator(paquete));
+                        break;
+                    case "4":
+                        if (!serviciosAdicionales.Any(s => s is KaraokeDecorator))
+                            serviciosAdicionales.Add(new KaraokeDecorator(paquete));
+                        break;
+                    case "5":
+                        if (!serviciosAdicionales.Any(s => s is CineDecorator))
+                            serviciosAdicionales.Add(new CineDecorator(paquete));
+                        break;
+                    default:
+                        Console.WriteLine("Selección no válida. Intente de nuevo.");
+                        break;
+                }
+            }
+
+            // Calcular el costo total sumando los costos de todos los servicios adicionales
+            double costoTotal = paquete.CalcularCosto(); // Incluye el costo base del paquete
+            foreach (var servicio in serviciosAdicionales)
+            {
+                costoTotal += servicio.CalcularCosto();
+            }
+
+            // Ejemplo de cómo obtener la descripción y el costo total del paquete
+            Console.WriteLine("Descripción del paquete: " + string.Join(", ", serviciosAdicionales.Select(s => s.ObtenerDescripcion())));
+            Console.WriteLine("Costo total del paquete: $" + costoTotal);
+
+
+            //-------------------------------------------------------------------------------------------------------------------
+
+            Console.WriteLine();
+
+            //---------------------------------------COMMAND--------------------------------------------------------------------
+
 
 
             Console.ReadLine();
