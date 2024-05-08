@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ProyectoFinalPD.Composite;
 using System.Threading.Tasks;
 
 namespace ProyectoFinalPD.Decorator
 {
-    public class PaqueteBase : PaqueteHabitacion
+    public class PaqueteBase : IPaqueteHabitacion
     {
         private string descripcion;
         private double costoBase;
@@ -17,12 +18,12 @@ namespace ProyectoFinalPD.Decorator
             costoBase = 0; // Precio base del paquete sin servicios adicionales
         }
 
-        public override string ObtenerDescripcion()
+        public string ObtenerDescripcion()
         {
             return descripcion;
         }
 
-        public override double CalcularCosto()
+        public double ObtenerPrecio()
         {
             return costoBase;
         }

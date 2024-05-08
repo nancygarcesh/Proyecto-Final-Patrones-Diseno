@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalPD.Visitor
 {
-    public interface Element
+    interface IElement
     {
-        void accept(Visitor visitor);
-        double CalcularCosto();
+        void Accept(IVisitor visitor);
     }
 }

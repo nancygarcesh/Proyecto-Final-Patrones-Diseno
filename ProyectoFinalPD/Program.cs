@@ -20,7 +20,6 @@ namespace ProyectoFinalPD
             Console.WriteLine("\r\n█▄▄ █ █▀▀ █▄░█ █░█ █▀▀ █▄░█ █ █▀▄ █▀█   ▄▀█ █░░   █▀ █ █▀ ▀█▀ █▀▀ █▀▄▀█ ▄▀█   █▀▄ █▀▀   █▀█ █▀▀ █▀ █▀▀ █▀█ █░█ ▄▀█ █▀\r\n█▄█ █ ██▄ █░▀█ ▀▄▀ ██▄ █░▀█ █ █▄▀ █▄█   █▀█ █▄▄   ▄█ █ ▄█ ░█░ ██▄ █░▀░█ █▀█   █▄▀ ██▄   █▀▄ ██▄ ▄█ ██▄ █▀▄ ▀▄▀ █▀█ ▄█\r\n\r\n█▀▄ █▀▀ █░░   █░█ █▀█ ▀█▀ █▀▀ █░░   █▀   █▀▀ █▀ ▀█▀ █▀█ █▀▀ █░░ █░░ ▄▀█ █▀ █\r\n█▄▀ ██▄ █▄▄   █▀█ █▄█ ░█░ ██▄ █▄▄   ▄█   ██▄ ▄█ ░█░ █▀▄ ██▄ █▄▄ █▄▄ █▀█ ▄█ ▄");
             Console.WriteLine();
 
-            ReporteVisitor reporte = new ReporteVisitor();
 
 
             //-------------------------------------------COMPOSITE---------------------------------------------------
@@ -74,7 +73,7 @@ namespace ProyectoFinalPD
                     Console.WriteLine("Entrada no válida. Por favor, introduzca un número.");
                 }
 
-            reporte.visitEleccion(new Eleccion { Patron = "Composite", Descripcion = "Reserva de habitaciones/paquetes", Costo = 0 });
+
 
             //----------------------------------------------------------------------------------------------------------------
 
@@ -132,7 +131,7 @@ namespace ProyectoFinalPD
                 habitacion.MostrarDetalles();
             }
 
-            reporte.visitEleccion(new Eleccion { Patron = "Builder", Descripcion = "Reserva de tipo de habitaciones", Costo = 0 });
+
 
             //---------------------------------------------------------------------------------------------------------------
 
@@ -144,10 +143,10 @@ namespace ProyectoFinalPD
             Console.WriteLine();
 
             // Crear un paquete base
-            PaqueteHabitacion paquete = new PaqueteBase();
+            IPaqueteHabitacion paquete = new PaqueteBase();
 
             // Lista para mantener los servicios adicionales seleccionados
-            List<PaqueteHabitacion> serviciosAdicionales = new List<PaqueteHabitacion>();
+            List<IPaqueteHabitacion> serviciosAdicionales = new List<IPaqueteHabitacion>();
 
             Console.WriteLine("Seleccione los servicios adicionales que desea agregar al paquete:");
             Console.WriteLine("1. Internet (+10Bs)");
@@ -193,17 +192,17 @@ namespace ProyectoFinalPD
             }
 
             // Calcular el costo total sumando los costos de todos los servicios adicionales
-            double costoTotal = paquete.CalcularCosto(); // Incluye el costo base del paquete
+            double costoTotal = paquete.ObtenerPrecio(); // Incluye el costo base del paquete
             foreach (var servicio in serviciosAdicionales)
             {
-                costoTotal += servicio.CalcularCosto();
+                costoTotal += servicio.ObtenerPrecio();
             }
 
             // Ejemplo de cómo obtener la descripción y el costo total del paquete
             Console.WriteLine("Descripción del paquete: " + string.Join(", ", serviciosAdicionales.Select(s => s.ObtenerDescripcion())));
             Console.WriteLine("Costo total del paquete: $" + costoTotal);
 
-            reporte.visitEleccion(new Eleccion { Patron = "Decorator", Descripcion = "Reserva de servicios adicionales", Costo = 0 });
+
 
 
             //-------------------------------------------------------------------------------------------------------------------
@@ -247,14 +246,14 @@ namespace ProyectoFinalPD
             Console.WriteLine();
 
             // Agregar comandos al controlador
-            controlador.anadirComando(comandoMusica);
-            controlador.anadirComando(comandoTina);
-            controlador.anadirComando(comandoLuz);
-            controlador.anadirComando(comandoCortinas);
+            controlador.AnadirComando(comandoMusica);
+            controlador.AnadirComando(comandoTina);
+            controlador.AnadirComando(comandoLuz);
+            controlador.AnadirComando(comandoCortinas);
 
             // Ejecutar comandos
-            controlador.ejecutarComandos();
-            reporte.visitEleccion(new Eleccion { Patron = "Command", Descripcion = "Aplicación de control de habitación", Costo = 0 });
+            controlador.EjecutarComandos();
+
 
             //--------------------------------------------------------------------------------------------------------------
 
@@ -330,7 +329,7 @@ namespace ProyectoFinalPD
                         break;
                 }
 
-            reporte.visitEleccion(new Eleccion { Patron = "Mediator", Descripcion = "Reserva de Pedidos", Costo = 0 });
+
 
             //------------------------------------------------------------------------------------------------------------
 
@@ -372,7 +371,7 @@ namespace ProyectoFinalPD
                         Console.WriteLine("Opción no válida. Por favor, ingrese una opción válida.");
                         break;
                 }
-            reporte.visitEleccion(new Eleccion { Patron = "State", Descripcion = "Reserva de Spa", Costo = 0 });
+
 
             //------------------------------------------------------------------------------------------------------------
 
@@ -381,9 +380,18 @@ namespace ProyectoFinalPD
             //----------------------------------------------------VISITOR-------------------------------------------------------
 
 
-            Console.WriteLine("¡Generando reporte de elecciones!");
-            Console.WriteLine();
-            reporte.MostrarReporte();
+            var mantenimiento3 = new Mantenimiento1(10, 500.0);
+            var limpieza3 = new Limpieza1(5, 300.0);
+            var cocina3 = new Cocina1(15, 1000.0);
+            var bar3 = new Bar1(20, 700.0);
+            var spa3 = new Spa1(3, 1200.0);
+
+            var reporteVisitor = new ReporteVisitor();
+            mantenimiento3.Accept(reporteVisitor);
+            limpieza3.Accept(reporteVisitor);
+            cocina3.Accept(reporteVisitor);
+            bar3.Accept(reporteVisitor);
+            spa3.Accept(reporteVisitor);
 
 
             //----------------------------------------------------------------------------------------------------------------------
