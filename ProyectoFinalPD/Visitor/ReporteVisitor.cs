@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,23 +7,31 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalPD.Visitor
 {
-    public class ReporteVisitor : Visitor
+    class ReporteVisitor : IVisitor
     {
-        private List<Eleccion> elecciones = new List<Eleccion>();
-
-        public void visitEleccion(Eleccion eleccion)
+        public void VisitMantenimiento(Mantenimiento1 mantenimiento)
         {
-            elecciones.Add(eleccion);
+            Console.WriteLine("Visitando Mantenimiento - Usos Diarios: {0}, Costo Total: {1}", mantenimiento.UsosDiarios, mantenimiento.CostoTotal);
         }
 
-        // Método para mostrar el reporte de elecciones
-        public void MostrarReporte()
+        public void VisitLimpieza(Limpieza1 limpieza)
         {
-            Console.WriteLine("Reporte de Elecciones:");
-            foreach (var eleccion in elecciones)
-            {
-                Console.WriteLine($"Patron: {eleccion.Patron}, Descripción: {eleccion.Descripcion}, Costo: {eleccion.Costo}");
-            }
+            Console.WriteLine("Visitando Limpieza - Usos Diarios: {0}, Costo Total: {1}", limpieza.UsosDiarios, limpieza.CostoTotal);
+        }
+
+        public void VisitCocina(Cocina1 cocina)
+        {
+            Console.WriteLine("Visitando Cocina - Usos Diarios: {0}, Costo Total: {1}", cocina.UsosDiarios, cocina.CostoTotal);
+        }
+
+        public void VisitBar(Bar1 bar)
+        {
+            Console.WriteLine("Visitando Bar - Usos Diarios: {0}, Costo Total: {1}", bar.UsosDiarios, bar.CostoTotal);
+        }
+
+        public void VisitSpa(Spa1 spa)
+        {
+            Console.WriteLine("Visitando Spa - Usos Diarios: {0}, Costo Total: {1}", spa.UsosDiarios, spa.CostoTotal);
         }
     }
 }

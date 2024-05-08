@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProyectoFinalPD.Composite;
 
 namespace ProyectoFinalPD.Decorator
 {
     public class InternetDecorator : ServicioDecorator
     {
-        public InternetDecorator(PaqueteHabitacion paquete) : base(paquete) { }
+        public InternetDecorator(IPaqueteHabitacion paquete) : base(paquete) { }
 
         public override string ObtenerDescripcion()
         {
             return "Internet(10 Bs)";
         }
 
-        public override double CalcularCosto()
+        public override double ObtenerPrecio()
         {
-            return base.CalcularCosto() + 10; // Precio del servicio de Internet
+            return base.ObtenerPrecio() + 10; // Precio del servicio de Internet
         }
     }
 }

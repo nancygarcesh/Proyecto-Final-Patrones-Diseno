@@ -27,5 +27,6 @@ namespace ProyectoFinalPD.Command
         {
             Console.WriteLine($"Mover cortinas: {(abiertas ? "Abiertas" : "Cerradas")}");
         }
+
     }
 }

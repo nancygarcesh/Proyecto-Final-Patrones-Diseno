@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProyectoFinalPD.Composite;
 
 namespace ProyectoFinalPD.Decorator
 {
-    public abstract class ServicioDecorator : PaqueteHabitacion
+    public abstract class ServicioDecorator : IPaqueteHabitacion
     {
-        protected PaqueteHabitacion paquete;
+        protected IPaqueteHabitacion paquete;
 
-        public ServicioDecorator(PaqueteHabitacion paquete)
+        public ServicioDecorator(IPaqueteHabitacion paquete)
         {
             this.paquete = paquete;
         }
 
-        public override string ObtenerDescripcion()
+        public virtual string ObtenerDescripcion()
         {
             return paquete.ObtenerDescripcion();
         }
 
-        public override double CalcularCosto()
+        public virtual double ObtenerPrecio()
         {
-            return paquete.CalcularCosto();
+            return paquete.ObtenerPrecio();
         }
     }
 }
