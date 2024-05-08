@@ -98,12 +98,14 @@
     <Compile Include="State\EstadoReservado.cs" />
     <Compile Include="State\EstadoSpa.cs" />
     <Compile Include="State\SistemaSpa.cs" />
+    <Compile Include="Visitor\Eleccion.cs" />
+    <Compile Include="Visitor\Element.cs" />
+    <Compile Include="Visitor\ReporteVisitor.cs" />
+    <Compile Include="Visitor\Visitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Visitor\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
