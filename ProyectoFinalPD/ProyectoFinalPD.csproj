@@ -81,7 +81,6 @@
     <Compile Include="Decorator\InternetDecorator.cs" />
     <Compile Include="Decorator\KaraokeDecorator.cs" />
     <Compile Include="Decorator\PaqueteBase.cs" />
-    <Compile Include="Decorator\PaqueteHabitacion.cs" />
     <Compile Include="Decorator\ServicioDecorator.cs" />
     <Compile Include="Decorator\SpaDecorator.cs" />
     <Compile Include="Mediator\Bar.cs" />
@@ -98,10 +97,14 @@
     <Compile Include="State\EstadoReservado.cs" />
     <Compile Include="State\EstadoSpa.cs" />
     <Compile Include="State\SistemaSpa.cs" />
-    <Compile Include="Visitor\Eleccion.cs" />
-    <Compile Include="Visitor\Element.cs" />
+    <Compile Include="Visitor\Bar1.cs" />
+    <Compile Include="Visitor\Cocina1.cs" />
+    <Compile Include="Visitor\IElement .cs" />
+    <Compile Include="Visitor\IVisitor.cs" />
+    <Compile Include="Visitor\Limpieza1.cs" />
+    <Compile Include="Visitor\Mantenimiento1.cs" />
     <Compile Include="Visitor\ReporteVisitor.cs" />
-    <Compile Include="Visitor\Visitor.cs" />
+    <Compile Include="Visitor\Spa1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

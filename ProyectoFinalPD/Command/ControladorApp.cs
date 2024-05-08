@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinalPD.Mediator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,23 +10,34 @@ namespace ProyectoFinalPD.Command
     public class ControladorApp
     {
         private List<Comando> comandos = new List<Comando>();
+        private Recepcion recepcion;
 
-        public void anadirComando(Comando comando)
+        public ControladorApp()
+        {
+        }
+
+        public void AnadirComando(Comando comando)
         {
             comandos.Add(comando);
         }
 
-        public void eliminarComando(Comando comando)
+        public void EliminarComando(Comando comando)
         {
             comandos.Remove(comando);
         }
 
-        public void ejecutarComandos()
+        public void EjecutarComandos()
         {
             foreach (var comando in comandos)
             {
                 comando.ejecutar();
             }
+        }
+
+        // Método para enviar un comando a Recepcion
+        public void EnviarComandoARecepcion(Comando comando)
+        {
+            recepcion.EjecutarComando(comando);
         }
     }
 }
