@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProyectoFinalPD.State;
 
 namespace ProyectoFinalPD.Visitor
 {
-    class Spa1 : IElement
+    public class Spa1 : IElement
     {
         private int usosDiarios;
         private double costoTotal;

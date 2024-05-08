@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalPD.Visitor
 {
-    class ReporteVisitor : IVisitor
+    public class ReporteVisitor : IVisitor
     {
         public void VisitMantenimiento(Mantenimiento1 mantenimiento)
         {

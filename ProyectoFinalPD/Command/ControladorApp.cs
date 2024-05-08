@@ -10,7 +10,7 @@ namespace ProyectoFinalPD.Command
     public class ControladorApp
     {
         private List<Comando> comandos = new List<Comando>();
-        private Recepcion recepcion; // Agregamos una referencia a Recepcion
+        private Recepcion recepcion;
 
         public ControladorApp()
         {

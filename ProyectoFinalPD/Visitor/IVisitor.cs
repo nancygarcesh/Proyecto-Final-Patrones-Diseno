@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalPD.Visitor
 {
-    interface IVisitor
+    public interface IVisitor
     {
         void VisitMantenimiento(Mantenimiento1 mantenimiento);
         void VisitLimpieza(Limpieza1 limpieza);

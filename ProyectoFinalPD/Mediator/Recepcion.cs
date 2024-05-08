@@ -1,4 +1,5 @@
 ﻿using ProyectoFinalPD.Command;
+using ProyectoFinalPD.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,14 @@ namespace ProyectoFinalPD.Mediator
         public void EjecutarComando(Comando comando)
         {
             comando.ejecutar();
+        }
+
+        // Método para generar un reporte visitando todos los colegas
+        public void GenerarReporte(ReporteVisitor reporte)
+        {
+
+            Console.WriteLine("Reporte de servicios generado!");
+
         }
     }
 }

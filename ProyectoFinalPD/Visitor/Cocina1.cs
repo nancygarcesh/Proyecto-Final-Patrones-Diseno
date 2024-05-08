@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalPD.Visitor
 {
-    class Cocina1 : IElement
+    public class Cocina1 : IElement
     {
         private int usosDiarios;
         private double costoTotal;

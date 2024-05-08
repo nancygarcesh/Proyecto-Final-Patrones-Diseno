@@ -13,5 +13,6 @@ namespace ProyectoFinalPD.Mediator
             // Lógica para manejar la solicitud de mantenimiento
             Console.WriteLine("Mantenimiento: Solicitud recibida - " + mensaje);
         }
+
     }
 }
