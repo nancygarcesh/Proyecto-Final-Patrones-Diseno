@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DAD10FFC-E7E7-451C-9435-C7EAB0F6AE78}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ProyectoFinalPD</RootNamespace>
+    <AssemblyName>ProyectoFinalPD</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builder\AccesoAreasLudicas.cs" />
+    <Compile Include="Builder\AccesoEstandar.cs" />
+    <Compile Include="Builder\AccesoInteligente.cs" />
+    <Compile Include="Builder\AccesoLujo.cs" />
+    <Compile Include="Builder\CenaEstandar.cs" />
+    <Compile Include="Builder\CenaInteligente.cs" />
+    <Compile Include="Builder\CenaLujo.cs" />
+    <Compile Include="Builder\ConstructorHabitacionEstandar.cs" />
+    <Compile Include="Builder\ConstructorHabitacionInteligente.cs" />
+    <Compile Include="Builder\ConstructorHabitacionLujo.cs" />
+    <Compile Include="Builder\Desayuno.cs" />
+    <Compile Include="Builder\DesayunoEstandar.cs" />
+    <Compile Include="Builder\DesayunoInteligente.cs" />
+    <Compile Include="Builder\DesayunoLujo.cs" />
+    <Compile Include="Builder\IConstructorHabitacion.cs" />
+    <Compile Include="Builder\Director.cs" />
+    <Compile Include="Builder\Habitacion.cs" />
+    <Compile Include="Builder\ServicioBar.cs" />
+    <Compile Include="Builder\ServicioBarEstandar.cs" />
+    <Compile Include="Builder\ServicioBarInteligente.cs" />
+    <Compile Include="Builder\ServicioBarLujo.cs" />
+    <Compile Include="Builder\ServicioCena.cs" />
+    <Compile Include="Command\ComandoCortinas.cs" />
+    <Compile Include="Command\ComandoTina.cs" />
+    <Compile Include="Command\Comando.cs" />
+    <Compile Include="Command\ComandoLuz.cs" />
+    <Compile Include="Command\ComandoMusica.cs" />
+    <Compile Include="Command\ControladorApp.cs" />
+    <Compile Include="Command\HabitacionInteligente.cs" />
+    <Compile Include="Composite\Cliente.cs" />
+    <Compile Include="Composite\HabitacionIndividual.cs" />
+    <Compile Include="Composite\IPaqueteHabitacion.cs" />
+    <Compile Include="Composite\PaqueteCompuesto.cs" />
+    <Compile Include="Decorator\CineDecorator.cs" />
+    <Compile Include="Decorator\GimnasioDecorator.cs" />
+    <Compile Include="Decorator\InternetDecorator.cs" />
+    <Compile Include="Decorator\KaraokeDecorator.cs" />
+    <Compile Include="Decorator\PaqueteBase.cs" />
+    <Compile Include="Decorator\PaqueteHabitacion.cs" />
+    <Compile Include="Decorator\ServicioDecorator.cs" />
+    <Compile Include="Decorator\SpaDecorator.cs" />
+    <Compile Include="Mediator\Bar.cs" />
+    <Compile Include="Mediator\Cocina.cs" />
+    <Compile Include="Mediator\Colega.cs" />
+    <Compile Include="Mediator\Limpieza.cs" />
+    <Compile Include="Mediator\Mantenimiento.cs" />
+    <Compile Include="Mediator\Mediador.cs" />
+    <Compile Include="Mediator\Recepcion.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\EstadoDisponible.cs" />
+    <Compile Include="State\EstadoNoDisponible.cs" />
+    <Compile Include="State\EstadoReservado.cs" />
+    <Compile Include="State\EstadoSpa.cs" />
+    <Compile Include="State\SistemaSpa.cs" />
+    <Compile Include="Visitor\Eleccion.cs" />
+    <Compile Include="Visitor\Element.cs" />
+    <Compile Include="Visitor\ReporteVisitor.cs" />
+    <Compile Include="Visitor\Visitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
