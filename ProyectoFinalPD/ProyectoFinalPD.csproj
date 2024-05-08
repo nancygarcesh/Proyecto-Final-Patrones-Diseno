@@ -43,6 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\AccesoAreasLudicas.cs" />
+    <Compile Include="Builder\AccesoEstandar.cs" />
+    <Compile Include="Builder\AccesoInteligente.cs" />
+    <Compile Include="Builder\AccesoLujo.cs" />
+    <Compile Include="Builder\CenaEstandar.cs" />
+    <Compile Include="Builder\CenaInteligente.cs" />
+    <Compile Include="Builder\CenaLujo.cs" />
+    <Compile Include="Builder\ConstructorHabitacionEstandar.cs" />
+    <Compile Include="Builder\ConstructorHabitacionInteligente.cs" />
+    <Compile Include="Builder\ConstructorHabitacionLujo.cs" />
+    <Compile Include="Builder\Desayuno.cs" />
+    <Compile Include="Builder\DesayunoEstandar.cs" />
+    <Compile Include="Builder\DesayunoInteligente.cs" />
+    <Compile Include="Builder\DesayunoLujo.cs" />
+    <Compile Include="Builder\IConstructorHabitacion.cs" />
+    <Compile Include="Builder\Director.cs" />
+    <Compile Include="Builder\Habitacion.cs" />
+    <Compile Include="Builder\ServicioBar.cs" />
+    <Compile Include="Builder\ServicioBarEstandar.cs" />
+    <Compile Include="Builder\ServicioBarInteligente.cs" />
+    <Compile Include="Builder\ServicioBarLujo.cs" />
+    <Compile Include="Builder\ServicioCena.cs" />
     <Compile Include="Composite\Cliente.cs" />
     <Compile Include="Composite\HabitacionIndividual.cs" />
     <Compile Include="Composite\IPaqueteHabitacion.cs" />
@@ -54,7 +76,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Builder\" />
+    <Folder Include="Command\" />
+    <Folder Include="Decorator\" />
+    <Folder Include="Mediator\" />
+    <Folder Include="State\" />
+    <Folder Include="Visitor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

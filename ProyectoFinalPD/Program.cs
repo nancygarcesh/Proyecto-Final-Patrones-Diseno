@@ -1,4 +1,5 @@
-﻿using ProyectoFinalPD.Composite;
+﻿using ProyectoFinalPD.Builder;
+using ProyectoFinalPD.Composite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,9 @@ namespace ProyectoFinalPD
     {
         static void Main(string[] args)
         {
+            //-------------------------------------------COMPOSITE---------------------------------------------------
             Cliente cliente = new Cliente();
 
-            bool continuar = true;
-            while (continuar)
-            {
                 Console.WriteLine("Seleccione una opción:");
                 Console.WriteLine("1. Reservar habitación individual (ONE)");
                 Console.WriteLine("2. Reservar paquete Medium (MEDIUM)");
@@ -46,7 +45,6 @@ namespace ProyectoFinalPD
                             cliente.HacerReservacion(paqueteBig);
                             break;
                         case 4:
-                            continuar = false;
                             break;
                         default:
                             Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
@@ -58,10 +56,61 @@ namespace ProyectoFinalPD
                     Console.WriteLine("Entrada no válida. Por favor, introduzca un número.");
                 }
 
-                Console.WriteLine("¿Desea realizar otra acción? (s/n)");
-                string respuesta = Console.ReadLine();
-                continuar = respuesta.Equals("s", StringComparison.OrdinalIgnoreCase);
+            //----------------------------------------------------------------------------------------------------------------
+
+
+            //------------------------------------------BUILDER------------------------------------------------------------
+
+            Director director = new Director();
+            IConstructorHabitacion constructor = null;
+
+            Console.WriteLine("Seleccione el tipo de habitación que desea:");
+            Console.WriteLine("1. Estándar");
+            Console.WriteLine("2. Lujo");
+            Console.WriteLine("3. Inteligente");
+
+            int opcion1;
+            if (int.TryParse(Console.ReadLine(), out opcion1))
+            {
+                switch (opcion1)
+                {
+                    case 1:
+                        constructor = new ConstructorHabitacionEstandar();
+                        break;
+                    case 2:
+                        constructor = new ConstructorHabitacionLujo();
+                        break;
+                    case 3:
+                        constructor = new ConstructorHabitacionInteligente();
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Seleccionando habitación estándar por defecto.");
+                        constructor = new ConstructorHabitacionEstandar();
+                        break;
+                }
+
+                director.SetConstructor(constructor);
+                director.ConstruirHabitacion();
+                Habitacion habitacion = constructor.ObtenerHabitacion();
+
+
+                habitacion.MostrarDetalles();
             }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Seleccionando habitación estándar por defecto.");
+                constructor = new ConstructorHabitacionEstandar();
+                director.SetConstructor(constructor);
+                director.ConstruirHabitacion();
+                Habitacion habitacion = constructor.ObtenerHabitacion();
+
+                Console.WriteLine("Detalles de la habitación:");
+                habitacion.MostrarDetalles();
+            }
+
+            //---------------------------------------------------------------------------------------------------------------
+
+
             Console.ReadLine();
         }
     }
