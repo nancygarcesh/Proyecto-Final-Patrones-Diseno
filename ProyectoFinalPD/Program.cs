@@ -2,6 +2,7 @@
 using ProyectoFinalPD.Command;
 using ProyectoFinalPD.Composite;
 using ProyectoFinalPD.Decorator;
+using ProyectoFinalPD.Mediator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace ProyectoFinalPD
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bienvenido al sistema de reservas del Hotel 5 estrellas!");
+            Console.WriteLine("\r\n█▄▄ █ █▀▀ █▄░█ █░█ █▀▀ █▄░█ █ █▀▄ █▀█   ▄▀█ █░░   █▀ █ █▀ ▀█▀ █▀▀ █▀▄▀█ ▄▀█   █▀▄ █▀▀   █▀█ █▀▀ █▀ █▀▀ █▀█ █░█ ▄▀█ █▀\r\n█▄█ █ ██▄ █░▀█ ▀▄▀ ██▄ █░▀█ █ █▄▀ █▄█   █▀█ █▄▄   ▄█ █ ▄█ ░█░ ██▄ █░▀░█ █▀█   █▄▀ ██▄   █▀▄ ██▄ ▄█ ██▄ █▀▄ ▀▄▀ █▀█ ▄█\r\n\r\n█▀▄ █▀▀ █░░   █░█ █▀█ ▀█▀ █▀▀ █░░   █▀   █▀▀ █▀ ▀█▀ █▀█ █▀▀ █░░ █░░ ▄▀█ █▀ █\r\n█▄▀ ██▄ █▄▄   █▀█ █▄█ ░█░ ██▄ █▄▄   ▄█   ██▄ ▄█ ░█░ █▀▄ ██▄ █▄▄ █▄▄ █▀█ ▄█ ▄");
+            Console.WriteLine();
 
             //-------------------------------------------COMPOSITE---------------------------------------------------
             Cliente cliente = new Cliente();
@@ -226,7 +228,81 @@ namespace ProyectoFinalPD
             // Ejecutar comandos
             controlador.ejecutarComandos();
 
+            //--------------------------------------------------------------------------------------------------------------
 
+            Console.WriteLine();
+
+            //------------------------------------------MEDIATOR------------------------------------------------------------
+
+            // Crear instancias de los colegas
+            var mantenimiento = new Mantenimiento();
+            var limpieza = new Limpieza();
+            var cocina = new Cocina();
+            var bar = new Bar();
+
+            // Crear instancia del mediador (Recepción) y asignarle los colegas
+            var recepcion = new Recepcion(mantenimiento, limpieza, cocina, bar);
+
+            // Configurar el mediador para cada colega
+            mantenimiento.SetMediador(recepcion);
+            limpieza.SetMediador(recepcion);
+            cocina.SetMediador(recepcion);
+            bar.SetMediador(recepcion);
+
+                Console.WriteLine("Ingrese el número correspondiente a la solicitud que desea hacer:");
+                Console.WriteLine("1. Pedido de mantenimiento");
+                Console.WriteLine("2. Pedido de limpieza");
+                Console.WriteLine("3. Pedido de comida");
+                Console.WriteLine("4. Pedido de bebida");
+                Console.WriteLine("5. Salir");
+
+                int opcion3;
+                if (!int.TryParse(Console.ReadLine(), out opcion3))
+                {
+                    Console.WriteLine("Opción no válida. Por favor, ingrese un número válido.");
+
+                }
+
+                string habitacion3;
+                string mensaje;
+                switch (opcion3)
+                {
+                    case 1:
+                        Console.WriteLine("Ingrese el número de habitación y una descripción del problema:");
+                        habitacion3 = Console.ReadLine();
+                        mensaje = Console.ReadLine();
+                        recepcion.Notificar(mantenimiento, $"{habitacion3}: {mensaje}");
+                        break;
+                    case 2:
+                        Console.WriteLine("Ingrese el número de habitación y detalles adicionales para la limpieza:");
+                        habitacion3 = Console.ReadLine();
+                        mensaje = Console.ReadLine();
+                        recepcion.Notificar(limpieza, $"{habitacion3}: {mensaje}");
+                        break;
+                    case 3:
+                        Console.WriteLine("Ingrese el número de habitación y su pedido de comida:");
+                        habitacion3 = Console.ReadLine();
+                        mensaje = Console.ReadLine();
+                        recepcion.Notificar(cocina, $"{habitacion3}: {mensaje}");
+                        break;
+                    case 4:
+                        Console.WriteLine("Ingrese el número de habitación y su pedido de bebida:");
+                        habitacion3 = Console.ReadLine();
+                        mensaje = Console.ReadLine();
+                        recepcion.Notificar(bar, $"{habitacion3}: {mensaje}");
+                        break;
+                    case 5:
+                        Console.WriteLine("Saliendo del programa.");
+                        return;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción del 1 al 5.");
+                        break;
+                }
+
+            //------------------------------------------------------------------------------------------------------------
+
+            Console.WriteLine();
+            Console.WriteLine("Para finalizar con el sistema de reservas presione ENTER\nGracias por usar el sistema");
 
             Console.ReadLine();
         }

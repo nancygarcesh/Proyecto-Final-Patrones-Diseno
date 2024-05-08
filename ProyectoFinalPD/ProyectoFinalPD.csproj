@@ -84,6 +84,13 @@
     <Compile Include="Decorator\PaqueteHabitacion.cs" />
     <Compile Include="Decorator\ServicioDecorator.cs" />
     <Compile Include="Decorator\SpaDecorator.cs" />
+    <Compile Include="Mediator\Bar.cs" />
+    <Compile Include="Mediator\Cocina.cs" />
+    <Compile Include="Mediator\Colega.cs" />
+    <Compile Include="Mediator\Limpieza.cs" />
+    <Compile Include="Mediator\Mantenimiento.cs" />
+    <Compile Include="Mediator\Mediador.cs" />
+    <Compile Include="Mediator\Recepcion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -91,7 +98,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mediator\" />
     <Folder Include="State\" />
     <Folder Include="Visitor\" />
   </ItemGroup>
