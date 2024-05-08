@@ -65,8 +65,12 @@
     <Compile Include="Builder\ServicioBarInteligente.cs" />
     <Compile Include="Builder\ServicioBarLujo.cs" />
     <Compile Include="Builder\ServicioCena.cs" />
+    <Compile Include="Command\ComandoCortinas.cs" />
+    <Compile Include="Command\ComandoTina.cs" />
     <Compile Include="Command\Comando.cs" />
+    <Compile Include="Command\ComandoLuz.cs" />
     <Compile Include="Command\ComandoMusica.cs" />
+    <Compile Include="Command\ControladorApp.cs" />
     <Compile Include="Command\HabitacionInteligente.cs" />
     <Compile Include="Composite\Cliente.cs" />
     <Compile Include="Composite\HabitacionIndividual.cs" />

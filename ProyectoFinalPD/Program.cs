@@ -1,4 +1,5 @@
 ﻿using ProyectoFinalPD.Builder;
+using ProyectoFinalPD.Command;
 using ProyectoFinalPD.Composite;
 using ProyectoFinalPD.Decorator;
 using System;
@@ -13,6 +14,8 @@ namespace ProyectoFinalPD
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Bienvenido al sistema de reservas del Hotel 5 estrellas!");
+
             //-------------------------------------------COMPOSITE---------------------------------------------------
             Cliente cliente = new Cliente();
 
@@ -182,6 +185,46 @@ namespace ProyectoFinalPD
             Console.WriteLine();
 
             //---------------------------------------COMMAND--------------------------------------------------------------------
+
+            HabitacionInteligente habitacion1 = new HabitacionInteligente();
+            ControladorApp controlador = new ControladorApp();
+
+            // Pedir al usuario que ingrese los datos para crear los comandos
+            Console.WriteLine("Ingrese los datos para ajustar la música:");
+            Console.Write("Artista: ");
+            string artista = Console.ReadLine();
+            Console.Write("Volumen: ");
+            int volumen = Convert.ToInt32(Console.ReadLine());
+
+            ComandoMusica comandoMusica = new ComandoMusica(habitacion1, artista, volumen);
+
+            Console.WriteLine("\nIngrese los datos para llenar la tina:");
+            Console.Write("Temperatura: ");
+            double temperatura = Convert.ToDouble(Console.ReadLine());
+
+            ComandoTina comandoTina = new ComandoTina(habitacion1, temperatura);
+
+            Console.WriteLine("\nIngrese los datos para ajustar la luz:");
+            Console.Write("Intensidad: ");
+            int intensidad = Convert.ToInt32(Console.ReadLine());
+
+            ComandoLuz comandoLuz = new ComandoLuz(habitacion1, intensidad);
+
+            Console.WriteLine("\nIngrese los datos para mover las cortinas (true para abrir, false para cerrar):");
+            bool abiertas = Convert.ToBoolean(Console.ReadLine());
+
+            ComandoCortinas comandoCortinas = new ComandoCortinas(habitacion1, abiertas);
+
+            Console.WriteLine();
+
+            // Agregar comandos al controlador
+            controlador.anadirComando(comandoMusica);
+            controlador.anadirComando(comandoTina);
+            controlador.anadirComando(comandoLuz);
+            controlador.anadirComando(comandoCortinas);
+
+            // Ejecutar comandos
+            controlador.ejecutarComandos();
 
 
 
