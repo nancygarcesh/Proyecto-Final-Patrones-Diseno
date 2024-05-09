@@ -10,16 +10,18 @@ namespace ProyectoFinalPD.Command
     {
         private HabitacionInteligente habitacion;
         private int intensidad;
+        private string horario;
 
-        public ComandoLuz(HabitacionInteligente habitacion, int intensidad)
+        public ComandoLuz(HabitacionInteligente habitacion, int intensidad, string horario)
         {
             this.habitacion = habitacion;
             this.intensidad = intensidad;
+            this.horario = horario;
         }
 
         public void ejecutar()
         {
-            habitacion.ajustarLuz(intensidad);
+            habitacion.ajustarLuz(intensidad, horario);
         }
 
         public void deshacer()

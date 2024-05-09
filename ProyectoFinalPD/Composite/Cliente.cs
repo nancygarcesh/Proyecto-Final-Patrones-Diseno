@@ -12,7 +12,7 @@ namespace ProyectoFinalPD.Composite
         {
             Console.WriteLine("Reserva realizada:");
             Console.WriteLine("Descripción: " + paquete.ObtenerDescripcion());
-            Console.WriteLine("Precio: " + paquete.ObtenerPrecio());
+            Console.WriteLine("Precio: " + paquete.ObtenerPrecio() + "Bs");
         }
     }
 }

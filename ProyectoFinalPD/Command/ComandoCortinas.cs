@@ -10,16 +10,18 @@ namespace ProyectoFinalPD.Command
     {
         private HabitacionInteligente habitacion;
         private bool abiertas;
+        private string horario;
 
-        public ComandoCortinas(HabitacionInteligente habitacion, bool abiertas)
+        public ComandoCortinas(HabitacionInteligente habitacion, bool abiertas, string horario)
         {
             this.habitacion = habitacion;
             this.abiertas = abiertas;
+            this.horario = horario;
         }
 
         public void ejecutar()
         {
-            habitacion.moverCortinas(abiertas);
+            habitacion.moverCortinas(abiertas, horario);
         }
 
         public void deshacer()

@@ -11,17 +11,19 @@ namespace ProyectoFinalPD.Command
         private HabitacionInteligente habitacion;
         private string artista;
         private int volumen;
+        private string horario;
 
-        public ComandoMusica(HabitacionInteligente habitacion, string artista, int volumen)
+        public ComandoMusica(HabitacionInteligente habitacion, string artista, int volumen, string horario)
         {
             this.habitacion = habitacion;
             this.artista = artista;
             this.volumen = volumen;
+            this.horario = horario;
         }
 
         public void ejecutar()
         {
-            habitacion.ajustarMusica(artista, volumen);
+            habitacion.ajustarMusica(artista, volumen, horario);
         }
 
         public void deshacer()

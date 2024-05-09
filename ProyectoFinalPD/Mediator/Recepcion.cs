@@ -3,6 +3,7 @@ using ProyectoFinalPD.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,13 +15,15 @@ namespace ProyectoFinalPD.Mediator
         private Limpieza limpieza;
         private Cocina cocina;
         private Bar bar;
+        private Spa1 spa1;
 
-        public Recepcion(Mantenimiento mantenimiento, Limpieza limpieza, Cocina cocina, Bar bar)
+        public Recepcion(Mantenimiento mantenimiento, Limpieza limpieza, Cocina cocina, Bar bar, Spa1 spa1)
         {
             this.mantenimiento = mantenimiento;
             this.limpieza = limpieza;
             this.cocina = cocina;
             this.bar = bar;
+            this.spa1 = spa1;
         }
 
         public void Notificar(Colega emisor, string evento)
@@ -45,6 +48,11 @@ namespace ProyectoFinalPD.Mediator
             {
                 Console.WriteLine("Recepción: Solicitud de bebida recibida.");
                 bar.RecibirMensaje(evento);
+            }
+            else if (emisor is Spa1)
+            {
+                Console.WriteLine("Recepción: Solicitud de spa recibida.");
+                spa1.RecibirMensaje(evento);
             }
         }
 

@@ -13,6 +13,5 @@ namespace ProyectoFinalPD.Builder
         void ConstruirAccesoAreasLudicas();
         void ConstruirServicioCena();
         Habitacion ObtenerHabitacion();
-
     }
 }

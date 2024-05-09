@@ -36,6 +36,7 @@ namespace ProyectoFinalPD.Builder
         public void MostrarDetalles()
         {
             Console.WriteLine("Detalles de la habitación:");
+            Console.WriteLine();
             Console.WriteLine("Desayuno: " + desayuno.DetalleDesayuno());
             Console.WriteLine("Servicio de bar: " + servicioBar.DetalleServicioBar());
             Console.WriteLine("Acceso a áreas lúdicas: " + accesoAreasLudicas.DetalleAcceso());

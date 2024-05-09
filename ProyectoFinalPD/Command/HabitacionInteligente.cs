@@ -8,24 +8,24 @@ namespace ProyectoFinalPD.Command
 {
     public class HabitacionInteligente
     {
-        public void ajustarMusica(string artista, int volumen)
+        public void ajustarMusica(string artista, int volumen, string horario)
         {
-            Console.WriteLine($"Ajustando música: Artista {artista}, Volumen {volumen}");
+            Console.WriteLine($"Ajustando música a las {horario}: Artista {artista}, Volumen {volumen}");
         }
 
-        public void llenarTina(double temperatura)
+        public void llenarTina(double temperatura, string horario)
         {
-            Console.WriteLine($"Llenando tina a {temperatura} grados");
+            Console.WriteLine($"Llenando tina a {temperatura} grados a las {horario}");
         }
 
-        public void ajustarLuz(int intensidad)
+        public void ajustarLuz(int intensidad, string horario)
         {
-            Console.WriteLine($"Ajustando intensidad de luz: {intensidad}");
+            Console.WriteLine($"Ajuste de intensidad de luz: {intensidad}, se realizara a las {horario}");
         }
 
-        public void moverCortinas(bool abiertas)
+        public void moverCortinas(bool abiertas, string horario)
         {
-            Console.WriteLine($"Mover cortinas: {(abiertas ? "Abiertas" : "Cerradas")}");
+            Console.WriteLine($"Mover cortinas a las {horario}: {(abiertas ? "Abiertas" : "Cerradas" )}");
         }
 
     }

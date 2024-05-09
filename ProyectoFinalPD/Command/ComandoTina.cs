@@ -11,16 +11,18 @@ namespace ProyectoFinalPD
     {
         private HabitacionInteligente habitacion;
         private double temperatura;
+        private string horario;
 
-        public ComandoTina(HabitacionInteligente habitacion, double temperatura)
+        public ComandoTina(HabitacionInteligente habitacion, double temperatura, string horario)
         {
             this.habitacion = habitacion;
             this.temperatura = temperatura;
+            this.horario = horario;
         }
 
         public void ejecutar()
         {
-            habitacion.llenarTina(temperatura);
+            habitacion.llenarTina(temperatura, horario);
         }
 
         public void deshacer()
