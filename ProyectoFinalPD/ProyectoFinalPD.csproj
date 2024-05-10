@@ -72,6 +72,7 @@
     <Compile Include="Command\ComandoMusica.cs" />
     <Compile Include="Command\ControladorApp.cs" />
     <Compile Include="Command\HabitacionInteligente.cs" />
+    <Compile Include="Command\InterfazUsuario.cs" />
     <Compile Include="Composite\Cliente.cs" />
     <Compile Include="Composite\HabitacionIndividual.cs" />
     <Compile Include="Composite\IPaqueteHabitacion.cs" />

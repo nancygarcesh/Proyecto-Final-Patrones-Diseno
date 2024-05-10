@@ -12,6 +12,8 @@ namespace ProyectoFinalPD.Command
         private List<Comando> comandos = new List<Comando>();
         private Recepcion recepcion;
 
+        public List<Comando> Comandos => comandos;
+
         public ControladorApp()
         {
         }

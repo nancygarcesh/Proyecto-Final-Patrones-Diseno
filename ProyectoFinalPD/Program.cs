@@ -148,8 +148,7 @@ namespace ProyectoFinalPD
 
                 if (opcion1 == 3) // Si la opción elegida es habitación inteligente
                 {
-                    //---------------------------------------COMMAND--------------------------------------------------------------------
-
+                    //--------------------------------COMMAND----------------------------
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("¡Aplicacion de control de habitación!");
                     Console.ResetColor();
@@ -157,53 +156,10 @@ namespace ProyectoFinalPD
 
                     HabitacionInteligente habitacion1 = new HabitacionInteligente();
                     ControladorApp controlador = new ControladorApp();
+                    InterfazUsuario interfaz = new InterfazUsuario(controlador, habitacion1);
 
-                    // Pedir al usuario que ingrese los datos para crear los comandos
-                    Console.WriteLine("Ingrese los datos para ajustar la música:");
-                    Console.Write("Artista (string): ");
-                    string artista = Console.ReadLine();
-                    Console.Write("Volumen (int): ");
-                    int volumen = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Horario (string): ");
-                    string horario1 = Console.ReadLine();
-
-                    ComandoMusica comandoMusica = new ComandoMusica(habitacion1, artista, volumen, horario1);
-
-                    Console.WriteLine("\nIngrese los datos para llenar la tina:");
-                    Console.Write("Temperatura (double): ");
-                    double temperatura = Convert.ToDouble(Console.ReadLine());
-                    Console.Write("Horario (string): ");
-                    string horario2 = Console.ReadLine();
-
-                    ComandoTina comandoTina = new ComandoTina(habitacion1, temperatura, horario2);
-
-                    Console.WriteLine("\nIngrese los datos para ajustar la luz:");
-                    Console.Write("Intensidad (int): ");
-                    int intensidad = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Horario (string): ");
-                    string horario3 = Console.ReadLine();
-
-                    ComandoLuz comandoLuz = new ComandoLuz(habitacion1, intensidad, horario3);
-
-                    Console.WriteLine("\nIngrese los datos para mover las cortinas (true para abrir, false para cerrar):");
-                    bool abiertas = Convert.ToBoolean(Console.ReadLine());
-                    Console.Write("Horario (string): ");
-                    string horario4 = Console.ReadLine();
-
-                    ComandoCortinas comandoCortinas = new ComandoCortinas(habitacion1, abiertas, horario4);
-
-                    Console.WriteLine();
-
-                    // Agregar comandos al controlador
-                    controlador.AnadirComando(comandoMusica);
-                    controlador.AnadirComando(comandoTina);
-                    controlador.AnadirComando(comandoLuz);
-                    controlador.AnadirComando(comandoCortinas);
-
-                    // Ejecutar comandos
-                    controlador.EjecutarComandos();
-
-                    //-------------------------------------------------------------------------------------------------------------
+                    interfaz.Iniciar();
+                    //----------------------------------------------------------------------------
                 }
 
                 costoFinal *= numeroHabitaciones;
@@ -251,8 +207,9 @@ namespace ProyectoFinalPD
             Console.WriteLine("2. Gimnasio (+20Bs)");
             Console.WriteLine("3. Spa (+20Bs)");
             Console.WriteLine("4. Karaoke (+30Bs)");
-            Console.WriteLine("5. Cine (+30Bs)");
-            Console.WriteLine("Presione Enter para finalizar la selección.");
+            Console.WriteLine("5. Cine (+30Bs)"); 
+            Console.WriteLine("6. Presione ENTER si no desea ningun servicio adicional");
+            Console.WriteLine("Presione ENTER luego de elegir todos sus servicios adicionales para finalizar la selección.");
 
             // Leer la selección del usuario y agregar servicios adicionales al paquete
             while (true)
@@ -335,7 +292,6 @@ namespace ProyectoFinalPD
             Console.WriteLine("3. Pedido de comida");
             Console.WriteLine("4. Pedido de bebida");
             Console.WriteLine("5. No deseo hacer ninguna solicitud");
-            Console.WriteLine("6. Salir");
 
             int opcion3;
             if (!int.TryParse(Console.ReadLine(), out opcion3))
@@ -375,9 +331,6 @@ namespace ProyectoFinalPD
                 case 5:
                     Console.WriteLine("Saliendo sin Solicitudes");
                     break;
-                case 6:
-                    Console.WriteLine("Saliendo del programa.");
-                    return;
                 default:
                     Console.WriteLine("Opción no válida. Por favor, seleccione una opción del 1 al 5.");
                     break;
@@ -401,7 +354,6 @@ namespace ProyectoFinalPD
             Console.WriteLine("1. Reservar Spa");
             Console.WriteLine("2. Cancelar reserva de Spa");
             Console.WriteLine("3. No realizar ninguna accion");
-            Console.WriteLine("4. Salir");
 
             Console.Write("Ingrese su elección: ");
             string opcion4 = Console.ReadLine();
@@ -424,9 +376,6 @@ namespace ProyectoFinalPD
                 case "3":
                     Console.WriteLine("¡No realizando ninguna accion!");
                     break;
-                case "4":
-                    Console.WriteLine("¡Gracias por utilizar nuestro sistema de reservas de Spa!");
-                    return;
                 default:
                     Console.WriteLine("Opción no válida. Por favor, ingrese una opción válida.");
                     break;
